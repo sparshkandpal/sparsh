@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: white;
 }
 
 .App-logo {
@@ -11,6 +12,13 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.logo
+{
+color: red;
+font-size: 35px;
+font-family: ui-sans-serif;
 }
 
 .App-header {
@@ -28,11 +36,30 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+.footer{
+  color: white;
+  margin:0px auto;
+  padding: 20px 0px 20px 0px;
+}
+
+.movies
+{
+font-size:30px;
+text-align:left;
+margin-left:5vw;
+}
+
+address{
+  font-size:80%;
+  margin:0px;
+  color:#0f0f0f;
 }
