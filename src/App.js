@@ -7,19 +7,6 @@ import PostList from './Components/PostList';
 import { movies } from './Components/movies';
 import SearchBar from './Components/SearchBar';
 
-fetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/tt1375666", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "30fbbc1001msh55aaa9e1828ec94p1be749jsn195c14fe5c37",
-		"x-rapidapi-host": "imdb-internet-movie-database-unofficial.p.rapidapi.com"
-	}
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-});
 
 class App extends Component {
 
@@ -27,15 +14,15 @@ class App extends Component {
     return (
         
           <div className="App">
-            <div class="logo">
+            <div className="logo">
               <h1>MOVIES</h1>
             </div>
           <SearchBar/>
-{/* 
-          <PostList/> */}
+
+          <PostList/>
 
           <div> 
-          <div class="movies">Genre 1</div>
+          <div className="movies">Genre 1</div>
             <Slider name="Genre1">
           {movies.map(movie => (
             <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>
@@ -43,7 +30,7 @@ class App extends Component {
         </Slider>
         </div>
         <div >
-        <div class="movies">Genre 2</div>
+        <div className="movies">Genre 2</div>
         <Slider name="Genre2">
           {movies.map(movie => (
             <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>
@@ -52,7 +39,7 @@ class App extends Component {
         </div>
 
         <div>
-        <div class="movies">Genre 3</div>
+        <div className="movies">Genre 3</div>
         <Slider name="Genre3">
           {movies.map(movie => (
             <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>

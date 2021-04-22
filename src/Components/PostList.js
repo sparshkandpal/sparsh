@@ -1,25 +1,40 @@
-import axios from "axios";
+import React, { Component } from 'react'
+import axios from 'axios'
+class PostList extends Component {
+	constructor(props) {
+		super(props)
 
-const options = {
-  method: 'GET',
-  url: 'https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi',
-  params: {
-    q: '{query}-!{syear},{eyear}-!{snfrate},{enfrate}-!{simdbrate},{eimdbrate}-!{genreid}-!{vtype}-!{audio}-!{subtitle}-!{imdbvotes}-!{downloadable}',
-    t: 'ns',
-    cl: '{clist}',
-    st: 'adv',
-    ob: '{sortby}',
-    p: '{page}',
-    sa: '{andor}'
-  },
-  headers: {
-    'x-rapidapi-key': '30fbbc1001msh55aaa9e1828ec94p1be749jsn195c14fe5c37',
-    'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com'
-  }
-};
+		this.state = {
+      posts: [],
+      errorMsg: ''
+		}
+	}
 
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
-});
+	componentDidMount() {
+		axios
+			.get('https://api.themoviedb.org/3/movie/popular?api_key=08e923c39c49a0c48856dca5ab574331&language=en-US&page=1')
+			.then(response => {
+				console.log(response)
+				this.setState({ posts: response.data })
+			})
+			.catch(error => {
+        console.log(error)
+        this.setState({errorMsg: 'Error retrieving data'})
+			})
+	}
+
+	render() {
+		const { posts, errorMsg } = this.state
+		return (
+			<div>
+				List of posts
+				{posts.length
+					? posts.map(post => <div key={post.id}>{post.title}</div>)
+          : null}
+        {errorMsg ? <div>{errorMsg}</div> : null}
+			</div>
+		)
+	}
+}
+
+export default PostList

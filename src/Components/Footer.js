@@ -12,7 +12,7 @@ class Footer extends Component {
                 </div>
                 <div className="col-7 col-sm-5">
                     <h5>Our Address</h5>
-                    <div class="address">
+                    <div className="address">
 		              Chamunda Vihar Phase 1<br />
 		              Kashipur, Uttrakhand<br />
 		              India<br />
