@@ -1,40 +1,41 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-class PostList extends Component {
-	constructor(props) {
-		super(props)
 
-		this.state = {
-      posts: [],
-      errorMsg: ''
-		}
-	}
+// import React from "react";
 
-	componentDidMount() {
-		axios
-			.get('https://api.themoviedb.org/3/movie/popular?api_key=08e923c39c49a0c48856dca5ab574331&language=en-US&page=1')
-			.then(response => {
-				console.log(response)
-				this.setState({ posts: response.data })
-			})
-			.catch(error => {
-        console.log(error)
-        this.setState({errorMsg: 'Error retrieving data'})
-			})
-	}
+// export default class PostList extends React.Component {
+//   state = {
+//     loading: true,
+//     person: null
+//   };
 
-	render() {
-		const { posts, errorMsg } = this.state
-		return (
-			<div>
-				List of posts
-				{posts.length
-					? posts.map(post => <div key={post.id}>{post.title}</div>)
-          : null}
-        {errorMsg ? <div>{errorMsg}</div> : null}
-			</div>
-		)
-	}
-}
+//   async componentDidMount() {
+//     const url = "https://api.themoviedb.org/3/movie/popular?api_key=08e923c39c49a0c48856dca5ab574331&language=en-US&page=1";
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     this.setState({ person: data.results, loading: false });
+//   }
 
-export default PostList
+//   render() {
+//     if (this.state.loading) {
+//       return <div>loading...</div>;
+//     }
+
+//     if (!this.state.person) {
+//       return <div>didn't get a movie</div>;
+//     }
+
+//     return (
+//       <div>
+//         {this.state.person.map(person => (
+//            <div key={person.genre_ids}>
+//         <div>{person.original_title}</div>
+//         <div>{person.overview}</div>
+//         <div>{person.vote_average/2}</div>
+//         <img src={person.poster_path} />
+//       </div>
+//         ))}
+//         </div>
+//     );
+//   }
+// }
+
+

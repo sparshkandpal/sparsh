@@ -5,8 +5,8 @@ import Footer from './Components/Footer';
 import './App.css';
 import PostList from './Components/PostList';
 import { movies } from './Components/movies';
-import SearchBar from './Components/SearchBar';
-
+// import SearchBar from './Components/SearchBar';
+import SearchPage from './Components/SearchPage';
 
 class App extends Component {
 
@@ -17,9 +17,10 @@ class App extends Component {
             <div className="logo">
               <h1>MOVIES</h1>
             </div>
-          <SearchBar/>
-
-          <PostList/>
+            
+            <div>
+          <SearchPage/>
+          </div>
 
           <div> 
           <div className="movies">Genre 1</div>
